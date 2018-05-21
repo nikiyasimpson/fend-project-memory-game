@@ -2,6 +2,9 @@
  * Create a list that holds all of your cards*/
 let cardList = document.querySelectorAll("i");
 console.log(cardList);
+/* Create array from nodelist */
+let cardArray = [...cardList];
+console.log(cardArray);
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
