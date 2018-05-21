@@ -1,10 +1,11 @@
 /*
  * Create a list that holds all of your cards*/
-let cardList = document.querySelectorAll("i");
+let cardList = document.querySelectorAll("li.card i");
+let deck = $("deck");
 console.log(cardList);
 /* Create array from nodelist */
-let cardArray = [...cardList];
-console.log(cardArray);
+let cards = Array.from(cardList);
+console.log(cards);
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -27,7 +28,20 @@ function shuffle(array) {
     return array;
 }
 
+function restart(){
+	$("li.card").removeClass("open show");
+	let shuffledCards = shuffle(cards);
+	console.log(shuffledCards);
+	var newCards = $("li.card i");
+	console.log(newCards);
+	for (let i=0; i < newCards.length; i++) {
+		let ind = shuffledCards[i];
+		newCards[i].className = 'fa ' + ind;
+	}
+}
 
+let restartGame = $("div.restart");
+restartGame.click(restart);
 /*
  
  
@@ -52,14 +66,13 @@ function showCard(){
         if($(this).classlist !== 'card open show match'){
         $(this).toggleClass('open');
         $(this).toggleClass('show');
-        var card = $(this).querySelector("i");
+        var card = $(this);
         openCards.push(card);
-        /*cardList.push($(this));*/
-        console.log(openCards);
+
         if(openCards.length === 2){
                 matchCard();
         }
-        console.log(cardList);
+       
 }
 }
 
@@ -81,15 +94,18 @@ function closeCard(card){
 }
 
 function matchCard() {
-    if (openCards[0] === openCards[1]) {
+    if (openCards[0].find("i.li").innerHTML === openCards[1].find("i.li").innerHTML) {
         console.log("We've got a match");
+        
+        openCards[0].addClass("match");
+        openCards[1].addClass("match");
         openCards = [];
-        cardList[cardList.length-1].addClass("match");
-        cardList[cardList.length-2].addClass("match");
+  
     } 
     else {
         console.log("Not a match");
-       	cardList.slice(-2,2).removeClass("open show");
+       	openCards[0].removeClass("open show");
+       	openCards[1].removeClass("open show");
         openCards = [];
     }
 }
