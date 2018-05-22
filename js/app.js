@@ -72,7 +72,7 @@ let selectedCard = $("li.card");
 
 function showCard(){
         if($(this).classlist !== 'card open show match'){
-
+        $(this).removeClass('close');
         $(this).toggleClass('open');
         $(this).toggleClass('show');
         var card = $(this);
@@ -108,8 +108,12 @@ function matchCard() {
 function noMatch() {
     openCards[0].addClass("close");
     openCards[1].addClass("close");
-    
+
     openCards = [];
+    if ($("li.card").classlist !== 'card open show match')
+    {
+        $("li.card").removeClass("open show");
+    }
 
 }
 
