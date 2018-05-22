@@ -5,12 +5,7 @@ let deck = $("deck");
 
 console.log(cards);
 
-var memoryCards = $("li.card i");
-    
-    for (let i=0; i < memoryCards.length; i++) {
-        let ind = cards[i];
-        memoryCards[i].className = 'fa ' + ind;
-    }
+cardShuffle();
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -33,18 +28,20 @@ function shuffle(array) {
     return array;
 }
 
+function cardShuffle() {
+    let shuffledCards = shuffle(cards);
+    console.log(shuffledCards);
+    var newCards = $("li.card i");
+    
+    for (let i=0; i < newCards.length; i++) {
+        let ind = shuffledCards[i];
+        newCards[i].className = 'fa ' + ind;
+    }
+}
+
 function restart(){
 	$("li.card").removeClass("open show");
-	let shuffledCards = shuffle(cards);
-	console.log(shuffledCards);
-	var newCards = $("li.card i");
-	
-	for (let i=0; i < newCards.length; i++) {
-		let ind = shuffledCards[i];
-		newCards[i].className = 'fa ' + ind;
-	}
-
-    console.log(newCards);
+	cardShuffle();
 }
 
 let restartGame = $("div.restart");
