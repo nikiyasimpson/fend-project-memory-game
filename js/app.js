@@ -1,10 +1,8 @@
 /*
  * Create a list that holds all of your cards*/
-let cardList = document.querySelectorAll("li.card i");
+let cards = ["fa-diamond","fa-paper-plane-o","fa-anchor","fa-bolt","fa-cube","fa-anchor","fa-leaf","fa-bicycle","fa-diamond","fa-bomb","fa-leaf","fa-bomb","fa-bolt","fa-bicycle","fa-paper-plane-o","fa-cube"]
 let deck = $("deck");
-console.log(cardList);
-/* Create array from nodelist */
-let cards = Array.from(cardList);
+
 console.log(cards);
 /*
  * Display the cards on the page
@@ -33,11 +31,13 @@ function restart(){
 	let shuffledCards = shuffle(cards);
 	console.log(shuffledCards);
 	var newCards = $("li.card i");
-	console.log(newCards);
+	
 	for (let i=0; i < newCards.length; i++) {
 		let ind = shuffledCards[i];
 		newCards[i].className = 'fa ' + ind;
 	}
+
+    console.log(newCards);
 }
 
 let restartGame = $("div.restart");
