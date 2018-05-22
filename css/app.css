@@ -72,12 +72,8 @@ h1 {
 }
 
 .deck .card.close {
-    
-    transition-delay: 0.6s;
-    transform: rotateY(180);
-    background: #2e3d49;
-    font-size: 0;
-    cursor:pointer;
+    animation-name: shake;
+    animation-duration: 1s;
 
 }
 
@@ -90,6 +86,8 @@ h1 {
     cursor: default;
     background: #02ccba;
     font-size: 33px;
+    animation-name: makebig;
+    animation-duration: 1s;
 }
 
 /*
@@ -118,3 +116,28 @@ h1 {
     float: right;
     cursor: pointer;
 }
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+@keyframes makebig {
+    20% {transform: scale(1);}
+    60% {transform: scale(2);}
+    100% {transform: scale(1);}
+}
+

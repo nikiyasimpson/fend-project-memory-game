@@ -100,8 +100,17 @@ function matchCard() {
     } 
     else {
         console.log("Not a match");
-        openCards = [];
+        noMatch();
     }
+}
+
+
+function noMatch() {
+    openCards[0].addClass("close");
+    openCards[1].addClass("close");
+    
+    openCards = [];
+
 }
 
 
