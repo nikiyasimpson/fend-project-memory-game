@@ -4,6 +4,13 @@ let cards = ["fa-diamond","fa-paper-plane-o","fa-anchor","fa-bolt","fa-cube","fa
 let deck = $("deck");
 
 console.log(cards);
+
+var memoryCards = $("li.card i");
+    
+    for (let i=0; i < memoryCards.length; i++) {
+        let ind = cards[i];
+        memoryCards[i].className = 'fa ' + ind;
+    }
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
