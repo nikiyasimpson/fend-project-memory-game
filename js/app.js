@@ -63,13 +63,16 @@ console.log(shuffledCards);
 let openCards = [];
 let selectedCard = $("li.card");
  /* set up the event listener for a card. If a card is clicked:*/
+
     selectedCard.click(showCard);
+
 
     /*  - display the card's symbol (put this functionality in another function that you call from this one)*/
     /*  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one) */
 
 function showCard(){
         if($(this).classlist !== 'card open show match'){
+
         $(this).toggleClass('open');
         $(this).toggleClass('show');
         var card = $(this);
@@ -79,25 +82,9 @@ function showCard(){
                 matchCard();
         }
        
-}
-}
-
-
-
-function openCard(card){
-
-
-        card.addClass( "open show" );
-        openCards.push(card);
-        /*openCards["IsOpen"] = "true"; // assign property of an // Object via bracket syntax
-        openCards["picture"] = pic;*/
-        
+    }
 }
 
-
-function closeCard(card){
-    card.removeClass( "open show" );
-}
 
 function matchCard() {
     var card1 = openCards[0].find("i").attr("class");
@@ -113,10 +100,9 @@ function matchCard() {
     } 
     else {
         console.log("Not a match");
-       	openCards[0].removeClass("open show");
-       	openCards[1].removeClass("open show");
         openCards = [];
     }
 }
+
 
 
