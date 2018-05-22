@@ -71,6 +71,7 @@ let selectedCard = $("li.card");
     /*  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one) */
 
 function showCard(){
+    
         if($(this).classlist !== 'card open show match'){
         $(this).removeClass('close');
         $(this).toggleClass('open');
@@ -110,6 +111,7 @@ function noMatch() {
     openCards[1].addClass("close");
 
     openCards = [];
+
     if ($("li.card").classlist !== 'card open show match')
     {
         $("li.card").removeClass("open show");
