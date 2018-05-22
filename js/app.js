@@ -5,13 +5,16 @@ let deck = $("deck");
 
 console.log(cards);
 
-cardShuffle();
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
- */
+  */
+
+cardShuffle();
+
+
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -40,7 +43,7 @@ function cardShuffle() {
 }
 
 function restart(){
-	$("li.card").removeClass("open show");
+	$("li.card").removeClass("open show match");
 	cardShuffle();
 }
 
