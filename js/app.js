@@ -2,8 +2,8 @@
  * Create a list that holds all of your cards*/
 let cards = ["fa-diamond","fa-paper-plane-o","fa-anchor","fa-bolt","fa-cube","fa-anchor","fa-leaf","fa-bicycle","fa-diamond","fa-bomb","fa-leaf","fa-bomb","fa-bolt","fa-bicycle","fa-paper-plane-o","fa-cube"]
 let deck = $("deck");
+let shuffledCards = [];
 
-console.log(cards);
 
 /*
  * Display the cards on the page
@@ -32,8 +32,7 @@ function shuffle(array) {
 }
 
 function cardShuffle() {
-    let shuffledCards = shuffle(cards);
-    console.log(shuffledCards);
+    shuffledCards = shuffle(cards);
     var newCards = $("li.card i");
     
     for (let i=0; i < newCards.length; i++) {
@@ -60,7 +59,7 @@ restartGame.click(restart);
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 /* Turn Card Over */
-
+console.log(shuffledCards);
 let openCards = [];
 let selectedCard = $("li.card");
  /* set up the event listener for a card. If a card is clicked:*/
@@ -74,8 +73,8 @@ function showCard(){
         $(this).toggleClass('open');
         $(this).toggleClass('show');
         var card = $(this);
-        openCards.push(card);
 
+        openCards.push(card);
         if(openCards.length === 2){
                 matchCard();
         }
@@ -101,7 +100,10 @@ function closeCard(card){
 }
 
 function matchCard() {
-    if (openCards[0].find("i.li").innerHTML === openCards[1].find("i.li").innerHTML) {
+    var card1 = openCards[0].find("i").attr("class");
+    var card2 = openCards[1].find("i").attr("class");
+    console.log(card1,card2);
+    if ( card1 === card2) {
         console.log("We've got a match");
         
         openCards[0].addClass("match");
