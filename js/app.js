@@ -52,9 +52,9 @@ restartGame.click(restart);
  
  
 
- *  - if the list already has another card, check to see if the two cards match
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
+ 
+
+
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
@@ -63,23 +63,24 @@ console.log(shuffledCards);
 let openCards = [];
 let selectedCard = $("li.card");
 let cardIDs = [];
+let moveCounter = 0;
+
  /* set up the event listener for a card. If a card is clicked:*/
 
-    selectedCard.click(showCard);
+        selectedCard.click(openCard);
+    
 
 
     /*  - display the card's symbol (put this functionality in another function that you call from this one)*/
     /*  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one) */
 
-function showCard(){
+function openCard(){
+        selectedCard.removeClass("close");
         let currentCardID = $(this).attr("ID");
-
-
         if (cardIDs.includes(currentCardID))
         {
             alert("Do not select the same card twice!");
         }
-
         
         else
         {
@@ -92,15 +93,21 @@ function showCard(){
                 $(this).toggleClass('show');
                 var card = $(this);
 
+
                 openCards.push(card);
+                /*  - if the list already has another card, check to see if the two cards match*/
                 if(openCards.length === 2){
                     matchCard();
                 }
             }
         }
+
+        
+    
 }
 
 
+/* if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one) */
 function matchCard() {
     var card1 = openCards[0].find("i").attr("class");
     var card2 = openCards[1].find("i").attr("class");
@@ -112,15 +119,21 @@ function matchCard() {
         openCards[1].addClass("match");
         openCards = [];
         cardIDs = [];
+
+        showScore();
+
   
     } 
     else {
         console.log("Not a match");
         noMatch();
     }
+
+        moveCounter++;
+        console.log(moveCounter);
 }
 
-
+/*    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)*/
 function noMatch() {
     openCards[0].addClass("close");
     openCards[1].addClass("close");
@@ -133,6 +146,13 @@ function noMatch() {
         $("li.card").removeClass("open show");
     }
 
+}
+
+function showScore(){
+    if ($("li.card").classlist === 'card open show match')
+    {
+        alert("Your score is "+moveCounter + "!");
+    }
 }
 
 
