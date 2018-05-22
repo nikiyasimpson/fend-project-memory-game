@@ -62,6 +62,7 @@ restartGame.click(restart);
 console.log(shuffledCards);
 let openCards = [];
 let selectedCard = $("li.card");
+let cardIDs = [];
  /* set up the event listener for a card. If a card is clicked:*/
 
     selectedCard.click(showCard);
@@ -71,19 +72,32 @@ let selectedCard = $("li.card");
     /*  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one) */
 
 function showCard(){
-    
-        if($(this).classlist !== 'card open show match'){
-        $(this).removeClass('close');
-        $(this).toggleClass('open');
-        $(this).toggleClass('show');
-        var card = $(this);
+        let currentCardID = $(this).attr("ID");
 
-        openCards.push(card);
-        if(openCards.length === 2){
-                matchCard();
+
+        if (cardIDs.includes(currentCardID))
+        {
+            alert("Do not select the same card twice!");
         }
-       
-    }
+
+        
+        else
+        {
+            cardIDs.push(currentCardID);
+
+    
+            if($(this).classlist !== 'card open show match'){
+                $(this).removeClass('close');
+                $(this).toggleClass('open');
+                $(this).toggleClass('show');
+                var card = $(this);
+
+                openCards.push(card);
+                if(openCards.length === 2){
+                    matchCard();
+                }
+            }
+        }
 }
 
 
@@ -97,6 +111,7 @@ function matchCard() {
         openCards[0].addClass("match");
         openCards[1].addClass("match");
         openCards = [];
+        cardIDs = [];
   
     } 
     else {
@@ -111,6 +126,7 @@ function noMatch() {
     openCards[1].addClass("close");
 
     openCards = [];
+    cardIDs = [];
 
     if ($("li.card").classlist !== 'card open show match')
     {
