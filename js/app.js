@@ -3,6 +3,7 @@
 let cards = ["fa-diamond","fa-paper-plane-o","fa-anchor","fa-bolt","fa-cube","fa-anchor","fa-leaf","fa-bicycle","fa-diamond","fa-bomb","fa-leaf","fa-bomb","fa-bolt","fa-bicycle","fa-paper-plane-o","fa-cube"]
 let deck = $("deck");
 let shuffledCards = [];
+let score = $("moves");
 
 
 /*
@@ -129,8 +130,8 @@ function matchCard() {
         noMatch();
     }
 
-        moveCounter++;
-        console.log(moveCounter);
+   
+        showScore();
 }
 
 /*    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)*/
@@ -149,10 +150,9 @@ function noMatch() {
 }
 
 function showScore(){
-    if ($("li.card").classlist === 'card open show match')
-    {
-        alert("Your score is "+moveCounter + "!");
-    }
+         moveCounter++;
+        console.log(moveCounter);
+        $(".moves").text(moveCounter);
 }
 
 
