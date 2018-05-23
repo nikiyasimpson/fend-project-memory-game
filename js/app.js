@@ -5,6 +5,18 @@ let deck = $("deck");
 let shuffledCards = [];
 let score = $("moves");
 
+var gameTimer = setInterval(updateDisplay, 1000); // every second call updateDisplay
+
+function updateDisplay() {
+    var value = parseInt($('#timer').find('.value').text(), 10);
+    value++;
+    $('#timer').find('.value').text(value);
+}
+
+function myStopFunction() {
+    clearInterval(gameTimer);
+}
+
 
 /*
  * Display the cards on the page
@@ -51,12 +63,7 @@ let restartGame = $("div.restart");
 restartGame.click(restart);
 /*
  
- 
 
- 
-
-
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 /* Turn Card Over */
@@ -102,9 +109,6 @@ function openCard(){
                 }
             }
         }
-
-        
-    
 }
 
 
@@ -149,11 +153,14 @@ function noMatch() {
 
 }
 
+/*    + increment the move counter and display it on the page (put this functionality in another function that you call from this one) */
 function showScore(){
          moveCounter++;
         console.log(moveCounter);
         $(".moves").text(moveCounter);
 }
+
+
 
 
 
