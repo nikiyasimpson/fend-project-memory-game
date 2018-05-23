@@ -4,10 +4,8 @@ let cards = ["fa-diamond","fa-paper-plane-o","fa-anchor","fa-bolt","fa-cube","fa
 let deck = $("deck");
 let shuffledCards = [];
 let score = $("moves");
-
-var gameTimer = setInterval(updateDisplay, 1000); // every second call updateDisplay
-
-
+let moveCounter = 0;
+let gameTimer = setInterval(updateDisplay, 1000); // every second call updateDisplay
 
 
 /*
@@ -49,6 +47,10 @@ function cardShuffle() {
 function restart(){
 	$("li.card").removeClass("open show match");
 	cardShuffle();
+    moveCounter = 0;
+    stopTimer();
+    let gameTimer = setInterval(updateDisplay, 1000); // every second call updateDisplay
+
 }
 
 let restartGame = $("div.restart");
@@ -63,7 +65,7 @@ console.log(shuffledCards);
 let openCards = [];
 let selectedCard = $("li.card");
 let cardIDs = [];
-let moveCounter = 0;
+
 let cardList = [];
 
  /* set up the event listener for a card. If a card is clicked:*/
