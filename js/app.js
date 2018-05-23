@@ -7,15 +7,7 @@ let score = $("moves");
 
 var gameTimer = setInterval(updateDisplay, 1000); // every second call updateDisplay
 
-function updateDisplay() {
-    var value = parseInt($('#timer').find('.value').text(), 10);
-    value++;
-    $('#timer').find('.value').text(value);
-}
 
-function myStopFunction() {
-    clearInterval(gameTimer);
-}
 
 
 /*
@@ -72,6 +64,7 @@ let openCards = [];
 let selectedCard = $("li.card");
 let cardIDs = [];
 let moveCounter = 0;
+let cardList = [];
 
  /* set up the event listener for a card. If a card is clicked:*/
 
@@ -124,7 +117,7 @@ function matchCard() {
         openCards[1].addClass("match");
         openCards = [];
         cardIDs = [];
-
+        cardList.push(card1,card2);
         showScore();
 
   
@@ -136,6 +129,11 @@ function matchCard() {
 
    
         showScore();
+
+        if (cardList.length === 16)
+        {
+            gameOver();
+        }
 }
 
 /*    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)*/
@@ -160,6 +158,22 @@ function showScore(){
         $(".moves").text(moveCounter);
 }
 
+function updateDisplay() {
+    var value = parseInt($('#timer').find('.value').text(), 10);
+    value++;
+    $('#timer').find('.value').text(value);
+}
+
+function stopTimer() {
+    clearInterval(gameTimer);
+}
+
+function gameOver() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+    stopTimer();
+
+}
 
 
 
