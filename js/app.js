@@ -70,7 +70,7 @@ let cardList = [];
 
  /* set up the event listener for a card. If a card is clicked:*/
 
-        selectedCard.click(openCard);
+selectedCard.click(openCard);
     
 
 
@@ -163,7 +163,7 @@ function showScore(){
 function updateDisplay() {
     var value = parseInt($('#timer').find('.value').text(), 10);
     value++;
-    $('#timer').find('.value').text(value);
+     $('#timer').find('.value').text(value);
 }
 
 function stopTimer() {
@@ -172,10 +172,14 @@ function stopTimer() {
 
 function gameOver() {
     var popup = document.getElementById("myPopup");
-    let gameScore = moveCounter * gameTimer;
-    popup.classList.toggle("show");
-    popup.textContent = `Game Over! Your Score Is... ${gameScore}. `;
+    let numberOfMoves = Number($(".moves").textContent);
+    var gameScore = numberOfMoves * Number(time);
+    console.log = `Score is ${gameScore}.`;
     stopTimer();
+    popup.classList.toggle("show");
+    var time = document.querySelector('.value').textContent;
+    popup.textContent = `Game Over! Your Score Is  ${moveCounter}. You completed this in ${time} seconds.`;
+    
 
 }
 
