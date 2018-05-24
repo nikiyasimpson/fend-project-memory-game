@@ -172,7 +172,9 @@ function stopTimer() {
 
 function gameOver() {
     var popup = document.getElementById("myPopup");
+    let gameScore = moveCounter * gameTimer;
     popup.classList.toggle("show");
+    popup.textContent = `Game Over! Your Score Is... ${gameScore}. `;
     stopTimer();
 
 }
