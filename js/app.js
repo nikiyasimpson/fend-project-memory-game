@@ -6,8 +6,7 @@ let shuffledCards = [];
 let score = $("moves");
 let moveCounter = 0;
 let gameTimer = setInterval(updateDisplay, 1000); // every second call updateDisplay
-
-
+var stars = document.querySelector(".stars");
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -111,7 +110,6 @@ function openCard(){
 
 function removeStars(){
 
-    var stars = document.querySelector(".stars");
     
     if (stars.hasChildNodes()) {
         var star = stars.querySelector("li");
@@ -195,15 +193,13 @@ function stopTimer() {
 }
 
 function gameOver() {
-    var scorePanel = document.querySelector(".score-panel");
-    const starContent = scorePanel.firstElementChild;
     var popup = document.getElementById("myPopup");
     let numberOfMoves = Number($(".moves").textContent);
     stopTimer();
-    popup.appendChild(starContent);
     popup.classList.toggle("show");
     var time = document.querySelector('.value').textContent;
     popup.textContent = `Game Over! Your Score Is  ${moveCounter}. You completed this in ${time} seconds.`;
+    popup.appendChild(stars);
     
 
 }
