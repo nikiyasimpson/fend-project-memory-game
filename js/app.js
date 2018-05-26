@@ -101,10 +101,34 @@ function openCard(){
                 /*  - if the list already has another card, check to see if the two cards match*/
                 if(openCards.length === 2){
                     matchCard();
+                    removeStars();
                 }
             }
         }
+
+        
 }
+
+function removeStars(){
+
+    var stars = document.querySelector(".stars");
+    
+    if (stars.hasChildNodes()) {
+        var star = stars.querySelector("li");
+
+    if (moveCounter === 18)
+    {
+    
+        stars.removeChild(star);
+
+    }
+    if (moveCounter  === 23)
+    {
+        stars.removeChild(star);
+    }
+
+    }
+    }
 
 
 /* if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one) */
@@ -171,11 +195,12 @@ function stopTimer() {
 }
 
 function gameOver() {
+    var scorePanel = document.querySelector(".score-panel");
+    const starContent = scorePanel.firstElementChild;
     var popup = document.getElementById("myPopup");
     let numberOfMoves = Number($(".moves").textContent);
-    var gameScore = numberOfMoves * Number(time);
-    console.log = `Score is ${gameScore}.`;
     stopTimer();
+    popup.appendChild(starContent);
     popup.classList.toggle("show");
     var time = document.querySelector('.value').textContent;
     popup.textContent = `Game Over! Your Score Is  ${moveCounter}. You completed this in ${time} seconds.`;
