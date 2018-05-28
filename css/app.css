@@ -204,8 +204,8 @@ h1 {
 }
 
 .playagain {
-    background-color:black;
-    color: #fff;
+    background-color:#fff;
+    color: black;
     text-align: center;
     border-radius: 6px;
     padding: 3px;
