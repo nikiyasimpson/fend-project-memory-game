@@ -13,6 +13,7 @@ let selectedCard = $("li.card");
 let cardIDs = [];
 let cardList = [];
 
+
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -61,6 +62,19 @@ function restart(){
 
 }
 
+function replay(){
+
+    cardShuffle();
+    $("li.card").removeClass("open show match");
+    popup.classList.toggle("show");
+    moveCounter = 0;
+    $(".moves").text(moveCounter);
+    stopTimer();
+    $('#timer').find('.value').text("0");
+    gameTimer = setInterval(updateDisplay, 1000); // every second call updateDisplay
+
+}
+
 let restartGame = $("div.restart");
 restartGame.click(restart);
 /*
@@ -74,7 +88,9 @@ console.log(shuffledCards);
  /* set up the event listener for a card. If a card is clicked:*/
 
 selectedCard.click(openCard);
-    
+
+
+
 
 
     /*  - display the card's symbol (put this functionality in another function that you call from this one)*/
@@ -205,8 +221,10 @@ function gameOver() {
     popup.textContent = `Game Over! Your Score Is  ${moveCounter}. You completed this in ${time} seconds.`;
     popup.appendChild(stars);
     popup.lastElementChild.classList = "stars finalStars";
-    /*deck.classlist = "overlay-back";*/
-    
+    var playAgain = "<div class='playagain'> Play Again </div>";
+    popup.insertAdjacentHTML('beforeend',playAgain);
+    let playButton = $(".playagain");
+    playButton.click(replay);
 
 }
 
