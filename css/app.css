@@ -31,6 +31,7 @@ body {
 h1 {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
+    font-size:4em;
 }
 
 /*
@@ -98,6 +99,7 @@ h1 {
     text-align: left;
     width: 345px;
     margin-bottom: 10px;
+    
 }
 
 .score-panel .stars {
