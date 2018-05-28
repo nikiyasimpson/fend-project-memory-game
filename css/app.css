@@ -17,7 +17,7 @@ body {
 }
 
 body {
-    background: skyblue url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    background: lightblue url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
     font-family: 'Playfair Display', serif;
 }
 
