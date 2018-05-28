@@ -224,7 +224,8 @@ function gameOver() {
     stopTimer();
     popup.classList.toggle("show");
     let time = document.querySelector('.value').textContent;
-    popup.insertAdjacentHTML('beforeend', `<p>Game Over!</p> <p>Your Score Is  ${moveCounter}.</p><p>You completed this in ${time} seconds.</p>`);
+    let finalScore = Math.round((Number(time)/moveCounter) * 1000);
+    popup.insertAdjacentHTML('beforeend', `<p>Game Over!</p> <p>Your Score Is  ${finalScore}.</p><p>You completed this in ${time} seconds.</p>`);
     let starHTML = stars.outerHTML;
     popup.insertAdjacentHTML('beforeend',starHTML);
     popup.lastElementChild.classList = "stars finalStars";
