@@ -149,31 +149,46 @@ h1 {
     100% {transform: scale(1);}
 }
 
-/* Pop Up Window */
-/* Popup container */
-.popup {
+.deckArea {
     position: relative;
+    z-index: 1;
+    width: 660px;
+    min-height: 680px;
+    text-align: center;
+   
+}
+
+.cardArea {
+    position: absolute;
+    z-index: 2; 
+}
+
+/* Pop Up Window */
+.popup {
     display: inline-block;
     cursor: pointer;
+    padding:; 10px;
+    z-index: 3; 
+    
 }
 
 /* The actual popup (appears on top) */
 .popup .popuptext {
     visibility: hidden;
-    width: 300px;
     background-color: #555;
     color: #fff;
     text-align: center;
     border-radius: 6px;
-    padding: 10px;
+    padding: 8px 0;
     font-size: 1.2em;
     position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -80px;
-}
+    z-index: 4;
+    opacity: 0.9;
+    width:50%;
+    margin: 0 auto;
 
+    
+}
 
 /* Toggle this class when clicking on the popup container (hide and show the popup) */
 .popup .show {
@@ -181,6 +196,13 @@ h1 {
     -webkit-animation: fadeIn 1s;
     animation: fadeIn 1s
 }
+
+
+
+
+
+
+
 
 /* Add animation (fade in the popup) */
 @-webkit-keyframes fadeIn {
@@ -195,6 +217,7 @@ h1 {
 
 .finalStars {
     padding: 10px;
+    list-style-type: none;
 }
 
 

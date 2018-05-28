@@ -1,7 +1,7 @@
 /*
  * Create a list that holds all of your cards*/
 let cards = ["fa-diamond","fa-paper-plane-o","fa-anchor","fa-bolt","fa-cube","fa-anchor","fa-leaf","fa-bicycle","fa-diamond","fa-bomb","fa-leaf","fa-bomb","fa-bolt","fa-bicycle","fa-paper-plane-o","fa-cube"]
-let deck = $("deck");
+let deck = document.getElementById("deckArea");
 let shuffledCards = [];
 let score = $("moves");
 let moveCounter = 0;
@@ -202,6 +202,7 @@ function gameOver() {
     popup.textContent = `Game Over! Your Score Is  ${moveCounter}. You completed this in ${time} seconds.`;
     popup.appendChild(stars);
     popup.lastElementChild.classList = "stars finalStars";
+    /*deck.classlist = "overlay-back";*/
     
 
 }

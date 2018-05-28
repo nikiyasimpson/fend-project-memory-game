@@ -28,12 +28,15 @@
         		<i class="fa fa-repeat"> Replay</i>
         	</div>
             <div id="timer"><span class="value">0</span> seconds</div>
-                <div class="popup">
-  <span class="popuptext" id="myPopup">Game Over!</span>
-</div>
+                
         </section>
 
-        <ul class="deck">
+        <div class="deckArea">
+            <div class="popup">
+                <span class="popuptext" id="myPopup">Game Over!</span>
+            </div>
+            <div class="cardArea">
+            <ul class="deck">
             <li id=card1 class="card">
                 <i class="fa"></i>
             </li>
@@ -82,7 +85,9 @@
             <li id=card16 class="card">
                 <i class="fa"></i>
             </li>
-        </ul>
+            </ul>
+        </div>
+        </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
