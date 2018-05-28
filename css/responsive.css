@@ -1,0 +1,115 @@
+
+
+@media screen and (max-width: 400px) {
+
+  h1 {
+    font-size:2em;
+  }
+
+}
+
+
+@media screen and (min-width:621px) {
+
+  h1 {
+    display: inline-block;
+  }
+
+  h2 {
+    font-size:2em;
+  }
+
+  h3 {
+    font-size:1.5em;
+  }
+
+  h4 {
+    font-size:1.2em;
+  }
+
+  header {
+  text-align:center;
+  }
+
+  .feature-work:hover {
+    transform: scale(1.1);
+    transition-duration: 2s;
+  }
+
+  .feature-work {
+    flex:2;
+    margin:10px;
+  }
+
+  footer img {
+    margin-left:auto;
+    margin-right:10px;
+    margin-bottom:10px;
+    float:left;
+  }
+
+  .header__title {
+    margin: 0.2em 0 0.2em 0;
+    padding: 0.2em 0 0.2em 10px;
+  }
+}
+
+@media screen and (min-width:401px) and (max-width:849px) {
+
+  h1 {
+    font-size:3em;
+    line-height: 1.2em;
+  }
+
+  h2 {
+    font-size:2em;
+  }
+
+  h3 {
+    font-size:.9em;
+  }
+}
+
+@media screen and (min-width: 850px) {
+  main, .header__inner, .nav, .content {
+    width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  h1 {
+    font-size:4em;
+    line-height: 1.2em;
+  }
+
+  h2 {
+    font-size:2em;
+  }
+
+  h3 {
+    font-size:2em;
+  }
+
+  h4 {
+    font-size:2em;
+  }
+
+  .footer-info {
+    width: 50%;
+    margin-left:25%;
+    margin-right:25%;
+  }
+}
+
+@media screen and (max-width:800px)
+{
+  footer p {
+      display:block;
+      width:100%;
+  }
+
+  .footer-info {
+    margin-left:auto;
+    margin-right:auto;
+  }
+}

@@ -1,9 +1,13 @@
 # Memory Game Project
 
+A game to help build your memory skills
+
 ## Table of Contents
 
 * [Instructions](#instructions)
 * [Contributing](#contributing)
+* [How to Play](#howtoplay)
+* [Authors](#authors)
 
 ## Instructions
 
@@ -18,3 +22,13 @@ For specific, detailed instructions, look at the project instructions in the [Ud
 This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
 
 For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## How to Play
+
+To play memory game, try to match all the cards. The more moves you make, you being to lose stars. Try to beat your own time each time you play
+
+## Authors
+
+Original static HTML file provided by [Udacity, Front End Web Development Course](http://www.udacity.com). 
+Shuffle function found on [Stackflow](http://stackoverflow.com/a/2450976).
+Written by Nikiya Simpson
