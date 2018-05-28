@@ -13,7 +13,6 @@ let selectedCard = $("li.card");
 let cardIDs = [];
 let cardList = [];
 
-
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -22,8 +21,6 @@ let cardList = [];
   */
 
 cardShuffle();
-
-
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -50,6 +47,8 @@ function cardShuffle() {
     }
 }
 
+/* Restart Game from middle of the game*/
+
 function restart(){
 
 	cardShuffle();
@@ -63,6 +62,7 @@ function restart(){
 
 }
 
+/* Replay from the the beginning of the game*/
 function replay(){
 
     cardShuffle();
@@ -77,26 +77,17 @@ function replay(){
 
 }
 
+/* Restart Game Listener */
 let restartGame = $("div.restart");
 restartGame.click(restart);
-/*
- 
 
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
- */
-/* Turn Card Over */
-console.log(shuffledCards);
 
- /* set up the event listener for a card. If a card is clicked:*/
-
+/* set up the event listener for a card. If a card is clicked:*/
 selectedCard.click(openCard);
 
 
-
-
-
-    /*  - display the card's symbol (put this functionality in another function that you call from this one)*/
-    /*  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one) */
+/*  - display the card's symbol (put this functionality in another function that you call from this one)*/
+/*  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one) */
 
 function openCard(){
         selectedCard.removeClass("close");
@@ -131,24 +122,22 @@ function openCard(){
 }
 
 function removeStars(){
-
     
     if (stars.hasChildNodes()) {
         var star = stars.querySelector("li");
 
     if (moveCounter === 18)
     {
-    
         stars.removeChild(star);
-
     }
+
     if (moveCounter  === 23)
     {
         stars.removeChild(star);
     }
 
     }
-    }
+}
 
 
 function addStars(){
@@ -180,17 +169,16 @@ function matchCard() {
         console.log("Not a match");
         noMatch();
     }
+        
+    showScore();
 
-   
-        showScore();
-
-        if (cardList.length === 16)
+    if (cardList.length === 16)
         {
             gameOver();
         }
 }
 
-/*    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)*/
+/* if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)*/
 function noMatch() {
     openCards[0].addClass("close");
     openCards[1].addClass("close");
@@ -205,7 +193,7 @@ function noMatch() {
 
 }
 
-/*    + increment the move counter and display it on the page (put this functionality in another function that you call from this one) */
+/* increment the move counter and display it on the page (put this functionality in another function that you call from this one) */
 function showScore(){
          moveCounter++;
         console.log(moveCounter);
@@ -222,6 +210,8 @@ function stopTimer() {
     clearInterval(gameTimer);
 }
 
+/* if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)*/
+ 
 function gameOver() {
 
     let numberOfMoves = Number($(".moves").textContent);
