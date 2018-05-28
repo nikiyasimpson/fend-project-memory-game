@@ -59,6 +59,7 @@ function restart(){
     stopTimer();
     $('#timer').find('.value').text("0");
     gameTimer = setInterval(updateDisplay, 1000); // every second call updateDisplay
+    addStars();
 
 }
 
@@ -72,6 +73,7 @@ function replay(){
     stopTimer();
     $('#timer').find('.value').text("0");
     gameTimer = setInterval(updateDisplay, 1000); // every second call updateDisplay
+    addStars();
 
 }
 
@@ -149,6 +151,12 @@ function removeStars(){
     }
 
 
+function addStars(){
+
+    var newStars = "<ul class='stars'><li><i class='fa fa-star'></i></li><li><i class='fa fa-star'></i></li><li><i class='fa fa-star'></i></li></ul>"
+
+    stars.outerHTML = newStars;
+}
 
 
 /* if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one) */
@@ -221,7 +229,8 @@ function gameOver() {
     popup.classList.toggle("show");
     var time = document.querySelector('.value').textContent;
     popup.textContent = `Game Over! Your Score Is  ${moveCounter}. You completed this in ${time} seconds.`;
-    popup.appendChild(stars);
+    var starHTML = stars.outerHTML;
+    popup.insertAdjacentHTML('beforeend',starHTML);
     popup.lastElementChild.classList = "stars finalStars";
     var playAgain = "<div class='playagain'> Play Again </div>";
     popup.insertAdjacentHTML('beforeend',playAgain);
