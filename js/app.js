@@ -54,6 +54,8 @@ function restart(){
 	cardShuffle();
     $("li.card").removeClass("open show match");
     moveCounter = 0;
+    cardIDs = [];
+    cardList = [];
     $(".moves").text(moveCounter);
     stopTimer();
     $('#timer').find('.value').text("0");
@@ -69,11 +71,14 @@ function replay(){
     $("li.card").removeClass("open show match");
     popup.classList.toggle("show");
     moveCounter = 0;
+    cardIDs = [];
+    cardList = [];
     $(".moves").text(moveCounter);
     stopTimer();
     $('#timer').find('.value').text("0");
     gameTimer = setInterval(updateDisplay, 1000); // every second call updateDisplay
     addStars();
+    $( ".popuptext" ).empty();
 
 }
 
@@ -141,6 +146,7 @@ function removeStars(){
 
 
 function addStars(){
+    let stars = document.querySelector(".stars");
 
     var newStars = "<ul class='stars'><li><i class='fa fa-star'></i></li><li><i class='fa fa-star'></i></li><li><i class='fa fa-star'></i></li></ul>"
 
@@ -218,11 +224,11 @@ function gameOver() {
     stopTimer();
     popup.classList.toggle("show");
     var time = document.querySelector('.value').textContent;
-    popup.textContent = `Game Over! Your Score Is  ${moveCounter}. You completed this in ${time} seconds.`;
+    popup.insertAdjacentHTML('beforeend', `<p>Game Over!</p> <p>Your Score Is  ${moveCounter}.</p><p>You completed this in ${time} seconds.</p>`);
     var starHTML = stars.outerHTML;
     popup.insertAdjacentHTML('beforeend',starHTML);
     popup.lastElementChild.classList = "stars finalStars";
-    var playAgain = "<div class='playagain'> Play Again </div>";
+    var playAgain = "<div class='playagain'> Play Again? </div>";
     popup.insertAdjacentHTML('beforeend',playAgain);
     let playButton = $(".playagain");
     playButton.click(replay);

@@ -17,7 +17,7 @@ body {
 }
 
 body {
-    background: lightblue url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    background: url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
     font-family: 'Playfair Display', serif;
 }
 
@@ -130,6 +130,7 @@ h1 {
    
 }
 
+
 .cardArea {
     position: absolute;
     z-index: 2; 
@@ -152,14 +153,14 @@ h1 {
     color: #fff;
     text-align: center;
     border-radius: 6px;
-    padding: 8px 0;
+    padding: 5px;
     font-size: 1.5em;
     position: absolute;
     z-index: 4;
     opacity: 0.9;
     width:50%;
     margin: -25%;
-    height: 50%;
+    height: 60%;
 
     
 }
