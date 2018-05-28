@@ -8,6 +8,11 @@ let moveCounter = 0;
 let gameTimer = setInterval(updateDisplay, 1000); // every second call updateDisplay
 var stars = document.querySelector(".stars");
 var popup = document.getElementById("myPopup");
+let openCards = [];
+let selectedCard = $("li.card");
+let cardIDs = [];
+let cardList = [];
+
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -45,11 +50,14 @@ function cardShuffle() {
 }
 
 function restart(){
-	$("li.card").removeClass("open show match");
+
 	cardShuffle();
+    $("li.card").removeClass("open show match");
     moveCounter = 0;
+    $(".moves").text(moveCounter);
     stopTimer();
-    let gameTimer = setInterval(updateDisplay, 1000); // every second call updateDisplay
+    $('#timer').find('.value').text("0");
+    gameTimer = setInterval(updateDisplay, 1000); // every second call updateDisplay
 
 }
 
@@ -62,11 +70,6 @@ restartGame.click(restart);
  */
 /* Turn Card Over */
 console.log(shuffledCards);
-let openCards = [];
-let selectedCard = $("li.card");
-let cardIDs = [];
-
-let cardList = [];
 
  /* set up the event listener for a card. If a card is clicked:*/
 
