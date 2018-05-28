@@ -1,8 +1,16 @@
 
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width:370px) {
 
   h1 {
+    font-size:2em;
+  }
+
+ .deck {
+    margin: 0 0 1em;
+}
+
+  body{
     font-size:2em;
   }
 
@@ -31,27 +39,6 @@
   text-align:center;
   }
 
-  .feature-work:hover {
-    transform: scale(1.1);
-    transition-duration: 2s;
-  }
-
-  .feature-work {
-    flex:2;
-    margin:10px;
-  }
-
-  footer img {
-    margin-left:auto;
-    margin-right:10px;
-    margin-bottom:10px;
-    float:left;
-  }
-
-  .header__title {
-    margin: 0.2em 0 0.2em 0;
-    padding: 0.2em 0 0.2em 10px;
-  }
 }
 
 @media screen and (min-width:401px) and (max-width:849px) {
@@ -71,11 +58,6 @@
 }
 
 @media screen and (min-width: 850px) {
-  main, .header__inner, .nav, .content {
-    width: 850px;
-    margin-left: auto;
-    margin-right: auto;
-  }
 
   h1 {
     font-size:4em;
@@ -94,22 +76,5 @@
     font-size:2em;
   }
 
-  .footer-info {
-    width: 50%;
-    margin-left:25%;
-    margin-right:25%;
-  }
-}
 
-@media screen and (max-width:800px)
-{
-  footer p {
-      display:block;
-      width:100%;
-  }
-
-  .footer-info {
-    margin-left:auto;
-    margin-right:auto;
-  }
 }

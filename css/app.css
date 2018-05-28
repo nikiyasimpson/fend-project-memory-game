@@ -213,12 +213,6 @@ h1 {
     margin:10%;
 }
 
-
-
-
-
-
-
 /* Add animation (fade in the popup) */
 @-webkit-keyframes fadeIn {
     from {opacity: 0;} 
