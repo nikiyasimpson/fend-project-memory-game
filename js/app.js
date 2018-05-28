@@ -1,4 +1,4 @@
-/*
+/* List of Variables
  * Create a list that holds all of your cards*/
 let cards = ["fa-diamond","fa-paper-plane-o","fa-anchor","fa-bolt","fa-cube","fa-anchor","fa-leaf","fa-bicycle","fa-diamond","fa-bomb","fa-leaf","fa-bomb","fa-bolt","fa-bicycle","fa-paper-plane-o","fa-cube"]
 let deck = document.getElementById("deckArea");
@@ -6,8 +6,8 @@ let shuffledCards = [];
 let score = $("moves");
 let moveCounter = 0;
 let gameTimer = setInterval(updateDisplay, 1000); // every second call updateDisplay
-var stars = document.querySelector(".stars");
-var popup = document.getElementById("myPopup");
+let stars = document.querySelector(".stars");
+let popup = document.getElementById("myPopup");
 let openCards = [];
 let selectedCard = $("li.card");
 let cardIDs = [];
