@@ -149,6 +149,8 @@ function removeStars(){
     }
 
 
+
+
 /* if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one) */
 function matchCard() {
     var card1 = openCards[0].find("i").attr("class");
