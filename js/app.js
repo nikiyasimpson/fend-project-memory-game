@@ -61,6 +61,7 @@ function restart(){
     $('#timer').find('.value').text("0");
     gameTimer = setInterval(updateDisplay, 1000); // every second call updateDisplay
     addStars();
+    let stars = document.querySelector(".stars");
 
 }
 
@@ -78,6 +79,7 @@ function replay(){
     $('#timer').find('.value').text("0");
     gameTimer = setInterval(updateDisplay, 1000); // every second call updateDisplay
     addStars();
+    let stars = document.querySelector(".stars");
     $( ".popuptext" ).empty();
 
 }
@@ -127,30 +129,30 @@ function openCard(){
 }
 
 function removeStars(){
-    
-    if (stars.hasChildNodes()) {
-        var star = stars.querySelector("li");
+
 
     if (moveCounter === 18)
     {
-        stars.removeChild(star);
+       stars.removeChild(stars.firstElementChild);
     }
 
     if (moveCounter  === 23)
     {
-        stars.removeChild(star);
+       stars.removeChild(stars.firstElementChild);
     }
 
-    }
+    
 }
 
 
 function addStars(){
-    let stars = document.querySelector(".stars");
+    let stars = $(".stars");
+    stars.empty();
+    stars.append("<li><i class='fa fa-star'></i></li>");
+    stars.append("<li><i class='fa fa-star'></i></li>");
+    stars.append("<li><i class='fa fa-star'></i></li>");
 
-    var newStars = "<ul class='stars'><li><i class='fa fa-star'></i></li><li><i class='fa fa-star'></i></li><li><i class='fa fa-star'></i></li></ul>"
 
-    stars.outerHTML = newStars;
 }
 
 
@@ -167,8 +169,6 @@ function matchCard() {
         openCards = [];
         cardIDs = [];
         cardList.push(card1,card2);
-        showScore();
-
   
     } 
     else {
@@ -207,7 +207,7 @@ function showScore(){
 }
 
 function updateDisplay() {
-    var value = parseInt($('#timer').find('.value').text(), 10);
+    let value = parseInt($('#timer').find('.value').text(), 10);
     value++;
      $('#timer').find('.value').text(value);
 }
@@ -223,12 +223,12 @@ function gameOver() {
     let numberOfMoves = Number($(".moves").textContent);
     stopTimer();
     popup.classList.toggle("show");
-    var time = document.querySelector('.value').textContent;
+    let time = document.querySelector('.value').textContent;
     popup.insertAdjacentHTML('beforeend', `<p>Game Over!</p> <p>Your Score Is  ${moveCounter}.</p><p>You completed this in ${time} seconds.</p>`);
-    var starHTML = stars.outerHTML;
+    let starHTML = stars.outerHTML;
     popup.insertAdjacentHTML('beforeend',starHTML);
     popup.lastElementChild.classList = "stars finalStars";
-    var playAgain = "<div class='playagain'> Play Again? </div>";
+    let playAgain = "<div class='playagain'> Play Again? </div>";
     popup.insertAdjacentHTML('beforeend',playAgain);
     let playButton = $(".playagain");
     playButton.click(replay);
