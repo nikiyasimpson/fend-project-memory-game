@@ -1,6 +1,10 @@
 
 @media screen and (max-width: 330px) {
 
+    .container {
+        margin:auto;
+    }
+
 h1 {font-size: 2em}
 	.starsSection {
     width: 100%;
@@ -42,7 +46,7 @@ h1 {font-size: 2em}
     width: 300px;
     min-height: 350px;
     padding: 10px;
-    margin-left:8%;
+    margin-left:5%;
 }
 
 .deck .card {
