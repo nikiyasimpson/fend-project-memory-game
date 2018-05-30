@@ -32,3 +32,11 @@ To play memory game, try to match all the cards. The more moves you make, you be
 Original static HTML file provided by [Udacity, Front End Web Development Course](http://www.udacity.com). 
 Shuffle function found on [Stackflow](http://stackoverflow.com/a/2450976).
 Written by Nikiya Simpson
+
+## References
+
+This project includes the following libraries
+
+* Bootstrap : [https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css](https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css)
+* Google Fonts: [https://fonts.googleapis.com/css?family=Fontdiner+Swanky|Playfair+Display:200](https://fonts.googleapis.com/css?family=Fontdiner+Swanky|Playfair+Display:200)
+
