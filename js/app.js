@@ -229,7 +229,7 @@ function gameOver() {
     popup.insertAdjacentHTML('beforeend', `<p>Game Over!</p> <p>Your Score Is  ${finalScore}.</p><p>You completed this in ${time} seconds.</p>`);
     let starHTML = stars.outerHTML;
     popup.insertAdjacentHTML('beforeend',starHTML);
-    popup.lastElementChild.classList = "stars finalStars";
+    popup.lastElementChild.classList = "finalStars";
     let playAgain = "<div class='playagain'> Play Again? </div>";
     popup.insertAdjacentHTML('beforeend',playAgain);
     let playButton = $(".playagain");
