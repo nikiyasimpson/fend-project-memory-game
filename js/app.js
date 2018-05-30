@@ -93,10 +93,8 @@ function replay(){
 let restartGame = $("div.restart");
 restartGame.click(restart);
 
-
 /* set up the event listener for a card. If a card is clicked:*/
 selectedCard.click(openCard);
-
 
 /*  - display the card's symbol (put this functionality in another function that you call from this one)*/
 /*  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one) */
@@ -168,6 +166,7 @@ function matchCard() {
     var card1 = openCards[0].find("i").attr("class");
     var card2 = openCards[1].find("i").attr("class");
     console.log(card1,card2);
+
     if ( card1 === card2) {
         console.log("We've got a match");
         
@@ -208,16 +207,16 @@ function noMatch() {
 
 /* increment the move counter and display it on the page (put this functionality in another function that you call from this one) */
 function showScore(){
-         moveCounter++;
-        console.log(moveCounter);
-        $(".moves").text(moveCounter);
+	moveCounter++;
+	console.log(moveCounter);
+	$(".moves").text(moveCounter);
 }
 
 /* Update timer display */
 function updateDisplay() {
     let value = parseInt($('#timer').find('.value').text(), 10);
     value++;
-     $('#timer').find('.value').text(value);
+    $('#timer').find('.value').text(value);
 }
 
 /* Stop Timer */
@@ -229,17 +228,18 @@ function stopTimer() {
  function gameOver() {
 
     let numberOfMoves = Number($(".moves").textContent);
-    stopTimer();
-    popup.classList.toggle("show");
     let time = document.querySelector('.value').textContent;
     let finalScore = Math.round((Number(time)/moveCounter) * 1000);
-    popup.insertAdjacentHTML('beforeend', `<p>Game Over!</p> <p>Your Score Is  ${finalScore}.</p><p>You completed this in ${time} seconds.</p>`);
     let starHTML = stars.outerHTML;
+    let playAgain = "<div class='playagain'> Play Again? </div>";
+    let playButton = $(".playagain");
+
+    stopTimer();
+    popup.classList.toggle("show");
+	popup.insertAdjacentHTML('beforeend', `<p>Game Over!</p> <p>Your Score Is  ${finalScore}.</p><p>You completed this in ${time} seconds.</p>`);
     popup.insertAdjacentHTML('beforeend',starHTML);
     popup.lastElementChild.classList = "finalStars";
-    let playAgain = "<div class='playagain'> Play Again? </div>";
     popup.insertAdjacentHTML('beforeend',playAgain);
-    let playButton = $(".playagain");
     playButton.click(replay);
 
 }
