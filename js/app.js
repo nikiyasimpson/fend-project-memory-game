@@ -1,6 +1,7 @@
 /* List of Variables
  * Create a list that holds all of your cards*/
-let cards = ["fa-diamond","fa-paper-plane-o","fa-anchor","fa-bolt","fa-cube","fa-anchor","fa-leaf","fa-bicycle","fa-diamond","fa-bomb","fa-leaf","fa-bomb","fa-bolt","fa-bicycle","fa-paper-plane-o","fa-cube"]
+const singleCards = ["fa-diamond","fa-paper-plane-o","fa-anchor","fa-bolt","fa-cube","fa-leaf","fa-bicycle","fa-bomb"]
+const cards = singleCards.concat(singleCards);
 let deck = document.getElementById("deckArea");
 let shuffledCards = [];
 let score = $("moves");
