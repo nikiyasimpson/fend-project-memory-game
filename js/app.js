@@ -107,6 +107,7 @@ function openCard(){
         
         else
         {
+            /*Add to list of current cards for this play of the game */
             cardIDs.push(currentCardID);
 
     
@@ -129,6 +130,7 @@ function openCard(){
         
 }
 
+/* Remove stars at certain intervals of the game*/
 function removeStars(){
 
 
@@ -145,7 +147,7 @@ function removeStars(){
     
 }
 
-
+/* Add stars back at the replay or restart of game */
 function addStars(){
     let stars = $(".stars");
     stars.empty();
@@ -207,19 +209,20 @@ function showScore(){
         $(".moves").text(moveCounter);
 }
 
+/* Update timer display */
 function updateDisplay() {
     let value = parseInt($('#timer').find('.value').text(), 10);
     value++;
      $('#timer').find('.value').text(value);
 }
 
+/* Stop Timer */
 function stopTimer() {
     clearInterval(gameTimer);
 }
 
 /* if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)*/
- 
-function gameOver() {
+ function gameOver() {
 
     let numberOfMoves = Number($(".moves").textContent);
     stopTimer();
