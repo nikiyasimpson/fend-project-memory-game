@@ -202,13 +202,15 @@ h1 {
     color: black;
     text-align: center;
     border-radius: 6px;
-    padding: 5px;
+    padding: auto;
     font-size: 1.2em;
     position:absolute;
     opacity: 1;
     width: 250px;
     height:50px;
     margin:10%;
+    vertical-align: middle;
+    line-height: 50px; 
 }
 
 .finalStars {

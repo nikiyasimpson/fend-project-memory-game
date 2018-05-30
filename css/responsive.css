@@ -62,10 +62,10 @@ h1 {font-size: 2em}
 }
 
 .playagain {
-    padding: 3px;
     font-size: .9em;
     width: 125px;
     height:40px;
+    line-height: 40px; 
     margin:10%;
     background-color:#2e3d49;
     color: #fff;
@@ -134,10 +134,10 @@ h1 {font-size: 2em}
 }
 
 .playagain {
-    padding: 3px;
     font-size: 1em;
     width: 125px;
     height:40px;
+    line-height: 40px; 
     margin:10%;
     background-color:#2e3d49;
     color: #fff;
