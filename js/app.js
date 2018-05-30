@@ -4,7 +4,6 @@ const singleCards = ["fa-diamond","fa-paper-plane-o","fa-anchor","fa-bolt","fa-c
 const cards = singleCards.concat(singleCards);
 let deck = document.getElementById("deckArea");
 let shuffledCards = [];
-let score = $("moves");
 let moveCounter = 0;
 let gameTimer = setInterval(updateDisplay, 1000); // every second call updateDisplay
 let stars = document.querySelector(".stars");
@@ -51,12 +50,14 @@ function cardShuffle() {
 /* Restart Game from middle of the game*/
 
 function restart(){
+	shuffledCards = [];
+	moveCounter = 0;
+	openCards = [];
+	cardIDs = [];
+	cardList = [];
 
 	cardShuffle();
     $("li.card").removeClass("open show match");
-    moveCounter = 0;
-    cardIDs = [];
-    cardList = [];
     $(".moves").text(moveCounter);
     stopTimer();
     $('#timer').find('.value').text("0");
@@ -69,12 +70,15 @@ function restart(){
 /* Replay from the the beginning of the game*/
 function replay(){
 
+	shuffledCards = [];
+	moveCounter = 0;
+	openCards = [];
+	cardIDs = [];
+	cardList = [];
+
     cardShuffle();
     $("li.card").removeClass("open show match");
     popup.classList.toggle("show");
-    moveCounter = 0;
-    cardIDs = [];
-    cardList = [];
     $(".moves").text(moveCounter);
     stopTimer();
     $('#timer').find('.value').text("0");
