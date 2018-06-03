@@ -231,15 +231,16 @@ function stopTimer() {
     let time = document.querySelector('.value').textContent;
     let finalScore = Math.round((Number(time)/moveCounter) * 1000);
     let starHTML = stars.outerHTML;
-    let playAgain = "<div class='playagain'> Play Again? </div>";
-    let playButton = $(".playagain");
+	let playAgain = "<div class='playagain'> Play Again? </div>";
 
     stopTimer();
     popup.classList.toggle("show");
 	popup.insertAdjacentHTML('beforeend', `<p>Game Over!</p> <p>Your Score Is  ${finalScore}.</p><p>You completed this in ${time} seconds.</p>`);
     popup.insertAdjacentHTML('beforeend',starHTML);
     popup.lastElementChild.classList = "finalStars";
+
     popup.insertAdjacentHTML('beforeend',playAgain);
+    let playButton = $(".playagain");
     playButton.click(replay);
 
 }
